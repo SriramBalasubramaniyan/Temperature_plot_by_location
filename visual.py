@@ -45,6 +45,7 @@ def get_weather_data(latitude, longitude, days):
     print(f"Data saved to data/{city_name}_weather.csv")
 
 
-get_weather_data(latitude = 11.164981, longitude = 77.345887, days=30) 
+get_weather_data(latitude = '', longitude = '', days='')
+#all the parameter datas of get_weather_data() should be in float, float, int 
 # be carefull of days the api to get data only support upto 3 month past data
 # https://www.latlong.net/ use this site to get lat and lng data
