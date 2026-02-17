@@ -32,8 +32,12 @@ def get_weather_data(latitude, longitude, days):
     if not os.path.exists('data'):
         os.makedirs('data')
 
+    # Create output folder if it doesn't exist
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
     # Save the plot in data folder
-    plt.savefig(f'data/{city_name}_weather_chart.png')
+    plt.savefig(f'output/{city_name}_weather_chart.png')
     plt.show()
 
     # Save to CSV
