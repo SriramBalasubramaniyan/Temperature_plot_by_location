@@ -3,6 +3,7 @@ import tabulate
 import os
 from get_data import get_metro_data_by_location
 from geopy.geocoders import Nominatim
+import input
 
 def get_weather_data(latitude, longitude, days):
     data = get_metro_data_by_location(latitude, longitude, days) #get metro data
@@ -44,8 +45,11 @@ def get_weather_data(latitude, longitude, days):
     df.to_csv(f'data/{city_name}_weather.csv', index=False)
     print(f"Data saved to data/{city_name}_weather.csv")
 
+try:
+    get_weather_data(*input.user_input()) #unpack the tuple returned by user_input() and pass it as arguments to get_weather_data() function
+except Exception as e:
+    print(f"Error: {e}") 
+finally:
+    exit() #exit the program after processing the input, this ensures that the program terminates after handling the user input, whether it was valid or not    
 
-get_weather_data(latitude = '', longitude = '', days='')
-#all the parameter datas of get_weather_data() should be in float, float, int 
-# be carefull of days the api to get data only support upto 3 month past data
 # https://www.latlong.net/ use this site to get lat and lng data
